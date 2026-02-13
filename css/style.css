@@ -1,0 +1,516 @@
+:root {
+    --primary-green: #2E5C3B;
+    --secondary-brown: #8B5A2B;
+    --accent-beige: #E8E4D9;
+    --text-color: #2C2C2C;
+    --background-color: #FAF9F6;
+    --white: #FFFFFF;
+    --font-heading: 'Georgia', serif;
+    --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --spacing-unit: 1rem;
+    --max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--primary-green);
+    margin-bottom: var(--spacing-unit);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--white);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-brown);
+}
+
+.nav-phone {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+.nav-phone svg {
+    fill: currentColor;
+    height: 1.2em;
+    width: 1.2em;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/hero_sustainable.png');
+    /* Sustainable farming hero image */
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 1rem;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--secondary-brown);
+    color: var(--white);
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--primary-green);
+}
+
+/* Climate Crisis Section */
+.climate-crisis {
+    background-color: #003b46;
+    /* Dark teal background from image */
+    color: var(--white);
+    padding: 4rem 2rem;
+    overflow: hidden;
+}
+
+.climate-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.climate-image {
+    flex: 1 1 400px;
+    opacity: 0;
+    /* Hidden initially for animation */
+    transform: translateX(-50px);
+    transition: all 1s ease-out;
+}
+
+.climate-image.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.climate-content {
+    flex: 1 1 400px;
+}
+
+.climate-content h2 {
+    color: var(--accent-beige);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out 0.2s;
+    /* Delay */
+}
+
+.climate-content h3 {
+    color: #a8d5ba;
+    /* Light green accent */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.climate-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out 0.4s;
+    /* More delay */
+}
+
+.climate-content h2.animate,
+.climate-content h3.animate,
+.climate-content p.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.climate-content a {
+    color: var(--accent-beige);
+    text-decoration: underline;
+}
+
+
+/* Global Impact Section */
+.impact {
+    padding: 4rem 2rem;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.impact p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+}
+
+/* CTA Cards */
+.cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img {
+    height: 300px;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    color: var(--secondary-brown);
+    margin-bottom: 0.5rem;
+}
+
+.card h4 {
+    color: var(--secondary-brown);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.card p {
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 3rem 2rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-column h4 {
+    color: var(--accent-beige);
+    margin-bottom: 1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.newsletter-form button {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-brown);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: var(--white);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: var(--secondary-brown);
+}
+
+
+.whatsapp-btn {
+    background-color: #25D366;
+    /* WhatsApp Green */
+    color: white;
+    margin-top: 1rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+
+.logo-img {
+    height: 40px;
+    /* Adjust height as needed */
+    width: auto;
+    filter: hue-rotate(60deg) brightness(0.8);
+    /* Shifts yellow to green */
+}
+
+/* News Section Styles */
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.news-header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-green);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.btn-view-all {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.btn-view-all:hover {
+    background-color: var(--secondary-brown);
+}
+
+.news-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.news-content {
+    padding: 1.5rem;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.news-tag {
+    color: var(--primary-green);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.news-date {
+    color: #666;
+}
+
+.news-content h3 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 0;
+}
